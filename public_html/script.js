@@ -44,6 +44,8 @@ $(document).ready(function(){
 		$( '#popUpForm' ).on('click', function() {
 			$( "#basicDialog").dialog('open');  /* this opens the dialog*/
 			
-		});
+		}); 
+
+		/* test push */
 	});    	
 });
