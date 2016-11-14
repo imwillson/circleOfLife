@@ -27,11 +27,11 @@ $(document).ready(function(){
     /* function for setting up the button with the dialog window */
     $( function() { 
 
-    	var dialog, form,
+    	var dialog;
 
     	/* animation for open and closing, sets default closed */
     	
-    	$( '#basicDialog').dialog({
+    	$( '#basicDialog' ).dialog( {
     		autoOpen: false, /* this means that it won't open until you tell it to */
     		show: {
     			effect: "blind",
@@ -42,39 +42,48 @@ $(document).ready(function(){
     			duration: 1000
     		}
     	});
-
-
-		
+	
     	/* creates connection to popUp button to open dialog*/
 		$( '#popUpForm' ).on('click', function() {
 			$( "#basicDialog").dialog('open');  /* this opens the dialog*/
 			
 		}); 
 
+		function addPost() {
+			console.log('add a user through a server')
+		}
 
-		/* create a form dialog */
+
+		/* create a form dialog with buttons */
+
 		dialog = $( '#infoForm').dialog({  
-	    		autoOpen: false, /* this means that it won't open until you tell it to */
-	    		show: {
-	    			effect: "blind",
-	    			duration: 1000
-	    		},
-	    		hide: {
-	    			effect: "explode",
-	    			duration: 1000
-	    		},
-	    		modal: true,
-	    		buttons: {
-	    			"Create an account": alert("has added an user");
-	    			Cancel: function() {
-	    				dialog.dialog( 'close' );
-	    			}
-	    		}
+			/* this means that it won't open until you tell it to */
+    		autoOpen: false, 
+    		show: {
+    			effect: "blind",
+    			duration: 1000
+    		},
+    		hide: {
+    			effect: "explode",
+    			duration: 1000
+    		},
+    		modal: true,
+    		buttons: {
+    			"Create an account": addPost,
+    			Cancel: function() {
+    				dialog.dialog( 'close' );
+    			}
+    		},
 
+    		close: function() {
+    			console.log('closing the form');
+    		}
 	    });
+ 
+
 
 		/* test push */
 	});    	
 
-	$(
+	
 });
