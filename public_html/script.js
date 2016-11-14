@@ -27,7 +27,10 @@ $(document).ready(function(){
     /* function for setting up the button with the dialog window */
     $( function() { 
 
+    	var dialog, form,
+
     	/* animation for open and closing, sets default closed */
+    	
     	$( '#basicDialog').dialog({
     		autoOpen: false, /* this means that it won't open until you tell it to */
     		show: {
@@ -39,6 +42,8 @@ $(document).ready(function(){
     			duration: 1000
     		}
     	});
+
+
 		
     	/* creates connection to popUp button to open dialog*/
 		$( '#popUpForm' ).on('click', function() {
@@ -46,6 +51,30 @@ $(document).ready(function(){
 			
 		}); 
 
+
+		/* create a form dialog */
+		dialog = $( '#infoForm').dialog({  
+	    		autoOpen: false, /* this means that it won't open until you tell it to */
+	    		show: {
+	    			effect: "blind",
+	    			duration: 1000
+	    		},
+	    		hide: {
+	    			effect: "explode",
+	    			duration: 1000
+	    		},
+	    		modal: true,
+	    		buttons: {
+	    			"Create an account": alert("has added an user");
+	    			Cancel: function() {
+	    				dialog.dialog( 'close' );
+	    			}
+	    		}
+
+	    });
+
 		/* test push */
 	});    	
+
+	$(
 });
